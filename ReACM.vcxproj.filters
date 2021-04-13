@@ -21,5 +21,20 @@
     <ClCompile Include="P5788 .cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="P3374.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P1226.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P1177.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P2384.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P4779.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

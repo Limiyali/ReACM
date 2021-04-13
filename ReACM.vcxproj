@@ -19,7 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="P1177.cpp" />
+    <ClCompile Include="P1226.cpp" />
     <ClCompile Include="P2197.cpp" />
+    <ClCompile Include="P2384.cpp" />
+    <ClCompile Include="P3374.cpp" />
+    <ClCompile Include="P4779.cpp" />
     <ClCompile Include="P5788 .cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
