@@ -25,9 +25,15 @@
     <ClCompile Include="P2197.cpp" />
     <ClCompile Include="P2384.cpp" />
     <ClCompile Include="P2657.cpp" />
+    <ClCompile Include="P3372.cpp" />
     <ClCompile Include="P3374.cpp" />
+    <ClCompile Include="P3375.cpp" />
+    <ClCompile Include="P3386.cpp" />
+    <ClCompile Include="P3812.cpp" />
+    <ClCompile Include="P4309.cpp" />
     <ClCompile Include="P4779.cpp" />
     <ClCompile Include="P5788 .cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
