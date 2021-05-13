@@ -42,5 +42,14 @@
     <ClCompile Include="P2657.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="L1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="L2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="L3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

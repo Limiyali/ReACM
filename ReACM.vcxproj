@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="L1.cpp" />
+    <ClCompile Include="L2.cpp" />
+    <ClCompile Include="L3.cpp" />
     <ClCompile Include="P1177.cpp" />
     <ClCompile Include="P1226.cpp" />
     <ClCompile Include="P1706.cpp" />
