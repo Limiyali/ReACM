@@ -20,8 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="L1.cpp" />
+    <ClCompile Include="L10.cpp" />
     <ClCompile Include="L2.cpp" />
     <ClCompile Include="L3.cpp" />
+    <ClCompile Include="L4.cpp" />
+    <ClCompile Include="L5.cpp" />
+    <ClCompile Include="L6.cpp" />
+    <ClCompile Include="multi_t.cpp" />
     <ClCompile Include="P1177.cpp" />
     <ClCompile Include="P1226.cpp" />
     <ClCompile Include="P1706.cpp" />

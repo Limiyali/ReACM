@@ -51,5 +51,20 @@
     <ClCompile Include="L3.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="L4.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="multi_t.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="L5.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="L6.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="L10.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
