@@ -1,4 +1,4 @@
-#if 1
+#if 0
 #include <iostream>
 #include <thread>
 #include <mutex>
@@ -96,20 +96,8 @@ void consumer() {
 	}
 }
 
-void modify(int& x) {
-	x = 2;
-}
-
 int main() {
-	int x = 0;
-	thread t1([&x] {
-		x = 3;
-		cout << "t1\n";
-		});
-	t1.join();
-	thread t2(modify, ref(x));
-	t2.join();
-	cout << x << endl;
+	cout << add(12, 22);
 	cout << "main finished\n";
 	return 0;
 }

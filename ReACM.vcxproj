@@ -21,8 +21,11 @@
   <ItemGroup>
     <ClCompile Include="L1.cpp" />
     <ClCompile Include="L10.cpp" />
+    <ClCompile Include="L15.cpp" />
+    <ClCompile Include="L17.cpp" />
     <ClCompile Include="L2.cpp" />
     <ClCompile Include="L3.cpp" />
+    <ClCompile Include="L32.cpp" />
     <ClCompile Include="L4.cpp" />
     <ClCompile Include="L5.cpp" />
     <ClCompile Include="L6.cpp" />
