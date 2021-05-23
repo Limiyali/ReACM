@@ -1,6 +1,7 @@
 #if 1
 #include <iostream>
 #include <thread>
+#include <list>
 #include <mutex>
 #include <windows.h>
 #include <future>
@@ -8,6 +9,7 @@
 #include <deque>
 #include <algorithm>
 #include <numeric>
+#include <shared_mutex>
 #include <condition_variable>
 using namespace std;
 mutex m;
@@ -135,16 +137,81 @@ T parallel_accumulate(Iterator first, Iterator last, T init)
     block_start = block_end;
   }
   accumulate_block<Iterator, T>()(block_start, last, res[num_threads - 1]);
+  for_each(threads.begin(), threads.end(), [](thread& a) {cout << a.get_id()<<endl; });
   for_each(threads.begin(), threads.end(), std::mem_fn(&std::thread::join));
   return accumulate(res.begin(), res.end(), init);
 }
 
+list<int>v;
+void list_add(int value) {
+	lock_guard<mutex> l(m);
+	v.push_back(value);
+}
+
+bool list_contain(int value) {
+	lock_guard<mutex> l(m);
+	return find(v.begin(), v.end(), value) != v.end();
+}
+
+class A {
+public:
+	explicit A(int x) :i(x) {};
+	int i;
+	mutex m;
+};
+
+once_flag flag;
+
+void died_lock(A& from, A& to, int m) {
+	from.m.lock();
+	cout << "sleep in" << this_thread::get_id() << endl;
+	Sleep(1000);
+	to.m.lock();
+	cout << "finished sleep in" << this_thread::get_id() << endl;
+	lock_guard<mutex>lock1(from.m, adopt_lock);
+	lock_guard<mutex>lock2(to.m, adopt_lock);
+	from.i -= m;
+	to.i += m;
+}
+
+std::unique_lock<std::mutex> getLock()
+{
+  extern mutex m;
+  unique_lock<std::mutex> l(m);
+  return l; // 不需要std::move（编译器负责调用移动构造函数）
+}
+
+class B {
+ private:
+  mutable shared_mutex m;
+  int n = 0;
+ public:
+  int read()
+  {
+    shared_lock<shared_mutex> l(m);
+	cout << this_thread::get_id() << endl;
+	Sleep(1000);
+	cout <<"finished "<< this_thread::get_id() << endl;
+    return n;
+  }
+  void write()
+  {
+    std::unique_lock<std::shared_mutex> l(m);
+	cout << this_thread::get_id() << endl;
+	Sleep(1000);
+	cout <<"finished "<< this_thread::get_id() << endl;
+    ++n;
+  }
+};
+
 int main() {
-	vector<long long int>a(1000000);
-	for (long long int i = 0; i < 10000000000; i++)
-		a.push_back(i);
-	cout << accumulate<>(a.begin(), a.end(), (long long)0) << endl;
-	cout << parallel_accumulate(a.begin(), a.end(), (long long )0) << endl;
+	B a;
+	thread t1(&B::read, &a);
+	thread t2(&B::read, &a);
+	thread t3(&B::write, &a);
+	t1.join();
+	t2.join();
+	t3.join();
 	return 0;
 }
 
