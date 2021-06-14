@@ -28,7 +28,12 @@
     <ClCompile Include="L32.cpp" />
     <ClCompile Include="L4.cpp" />
     <ClCompile Include="L5.cpp" />
+    <ClCompile Include="L581.cpp" />
     <ClCompile Include="L6.cpp" />
+    <ClCompile Include="L617.cpp" />
+    <ClCompile Include="L621.cpp" />
+    <ClCompile Include="L647.cpp" />
+    <ClCompile Include="L739.cpp" />
     <ClCompile Include="multi_t.cpp" />
     <ClCompile Include="P1177.cpp" />
     <ClCompile Include="P1226.cpp" />

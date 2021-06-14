@@ -27,5 +27,10 @@
     <ClCompile Include="P4779.cpp" />
     <ClCompile Include="P5788 .cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="L739.cpp" />
+    <ClCompile Include="L647.cpp" />
+    <ClCompile Include="L621.cpp" />
+    <ClCompile Include="L617.cpp" />
+    <ClCompile Include="L581.cpp" />
   </ItemGroup>
 </Project>
