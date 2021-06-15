@@ -1,4 +1,4 @@
-#if 0
+#if 1
 #include <iostream>
 #include <thread>
 #include <list>
@@ -9,6 +9,7 @@
 #include <deque>
 #include <algorithm>
 #include <numeric>
+#include <type_traits>
 #include <shared_mutex>
 #include <condition_variable>
 using namespace std;
@@ -204,14 +205,68 @@ class B {
   }
 };
 
+template<int N>
+struct factory {
+	static const int value = N * factory<N - 1>::value;
+};
+
+template<>
+struct factory<0> {
+	static const int value = 1;
+};
+
+template<unsigned long long N>
+struct binary {
+	static const int value = binary<N / 10>::value * 2 + N % 10;
+};
+
+template<>
+struct binary<0> {
+	static const int value = 0;
+};
+
+int m_sum(initializer_list<int>li) {
+	int sum = 0;
+	for (auto it = li.begin(); it != li.end(); it++)
+		sum += *it;
+	return sum;
+}
+
+int m_sum(int count, ...) {
+	va_list ap;
+	va_start(ap, count);
+	int sum = 0;
+	for (int i = 0; i < count; i++)
+		sum += va_arg(ap, int);
+	va_end(ap);
+	return sum;
+}
+template<typename T>
+void pt(T head) {
+	cout << head << " ";
+}
+template<typename T,typename ... Ts>
+void pt(T head, Ts ... args) {
+	cout << head << " ";
+	pt(args...);
+}
+
+template<typename ... Ts>
+void m_pt(Ts ... args) {
+	int a[] = { (pt(args),0)... };
+}
+template<typename T>
+const T con( T a) {
+	return (const T)a;
+}
+
 int main() {
-	B a;
-	thread t1(&B::read, &a);
-	thread t2(&B::read, &a);
-	thread t3(&B::write, &a);
-	t1.join();
-	t2.join();
-	t3.join();
+	int c = 2;
+    const int a = c;
+	int* mod = con<int*>(&c);
+	*mod = 4;
+	const int b = 3;
+	cout << a << " "<<b << endl;
 	return 0;
 }
 
